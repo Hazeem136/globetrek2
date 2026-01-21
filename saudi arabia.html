@@ -1,0 +1,651 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobeTrek-Saudi Arabia</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+
+body {
+  background: #f6f6f6;
+padding-top: 70px;
+}
+
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  border-bottom: 1px solid #ddd;
+  background: white;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+
+}
+.logo img {
+  height: 36px;
+  width: auto;
+  cursor: pointer;
+}
+
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 8px 14px;
+  width: 180px;
+  font-size: 14px;
+}
+
+.search-box button {
+  border: none;
+  background: black;
+  color: white;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.search-box button:hover {
+  background: #444;
+}
+
+.subscribe {
+  background: #ffcc00;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.subscribe a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.logo-clock {
+  font-size: 10px;
+  color: #808080;
+  margin-top: 1px;
+  font-weight: normal;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+}
+
+
+/* HERO */
+.hero {
+  height: calc(100vh - 70px);
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("mecca.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: bold;
+  margin: 10px 0;
+  font-family:"Verdana", sans-serif;
+}
+
+.hero p {
+  font-size: 18px;
+  font-family:"Lucida Handwriting", cursive;
+}
+
+/* SECTION */
+section {
+  padding: 80px 60px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+}
+
+.country-article {
+  max-width: 900px;
+  margin: 0;              
+  padding: 20px;
+  font-family: "Georgia", serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* FEATURED */
+.article-featured img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.article-content {
+  margin-top: 25px;
+}
+
+.article-content h1 {
+  font-size: 34px;
+  margin: 10px 0 20px;
+  color: #254D79;
+}
+
+/* ARTICLE SECTIONS */
+.article-section {
+  margin-top: 60px;
+}
+
+.article-section h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  border-left: 5px solid #d62828;
+  padding-left: 15px;
+}
+
+.article-section img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.article-section p {
+  margin-bottom: 20px;
+  font-size: 17px;
+}
+
+/* TAG */
+.tag {
+  font-size: 12px;
+  color: #d62828;
+  font-weight: bold;
+}
+.page-layout {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 40px;
+}
+
+.article-media {
+  width: 100%;
+  height: 420px;           
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.article-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      
+}
+
+.music-embed {
+  margin-top: 25px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+
+/* SIDEBAR */
+.sidebar {
+  position: sticky;
+  top: 100px; 
+  align-self: start;
+  max-height: calc(100vh - 120px); 
+  overflow-y: auto;
+  font-family: Georgia, serif;
+}
+
+.sidebar-box {
+  background: white;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.sidebar-box h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* SIDEBAR ITEM */
+.side-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.side-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.side-title {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.side-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: inherit;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.side-item:hover {
+  background: #f2f2f2;
+}
+
+.side-item img {
+  flex-shrink: 0;
+}
+
+.newsletter {
+  background: url("middle east bg.jpg") center/cover no-repeat;
+  padding: 100px 40px;
+  text-align: center;
+  color: white;
+}
+
+.newsletter h2 {
+  font-size: 40px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.newsletter p {
+  font-size: 18px;
+}
+
+footer {
+  background: black;
+  color: white;
+  padding: 80px 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+footer h4 {
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+footer a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+  <img src="globtrek.png" alt="My Logo">
+  <div class="logo-clock" id="logoClock"></div>
+</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="europe.html">Europe</a>
+    <a href="country.html">Middle-East</a>
+    <a href="asia1.html">Asia</a>
+    <a href="destination.html">Destination</a>
+    <a href="aboutus.html">About Us</a>
+    
+
+  </nav>
+
+  <div class="actions">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search destination..." />
+      <button id="searchBtn">🔍</button>
+    </div>
+    <button class="subscribe"><a href="joinus.html">Join Us</a></button>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <p>DESTINATIONS</p>
+    <h1>Saudi Arabia</h1>
+    <p>"Hooliest Country for muslim"</p>
+  </div>
+</div>
+
+<div class="page-layout">
+
+  <main class="country-article">
+
+  <!-- INTRO ARTICLE -->
+  <article class="article-featured">
+   <div class="article-media">
+  <video autoplay muted loop playsinline>
+    <source src="vidmidd.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+    <div class="article-content">
+      <span class="tag">COUNTRY GUIDE</span>
+      <h1>Discover Saudi Arabia: A Land of Culture, Nature, and Modern Wonders</h1>
+
+      <p>
+        Saudi Arabia is a Middle east known for its cultural diversity,
+        modern cities, and rich culinary heritage.
+        From the towering skyscrapers of Jeddah tower to the peaceful villages
+        Saudi Arabia offers travelers a balanced mix of tradition and
+        modernity.
+      </p>
+
+      <p>
+        The country is home to Arabs and indigenous communities,
+        each contributing to Saudi Arabia’s unique identity. This diversity can be seen
+        in daily life, architecture, festivals, and food culture throughout the nation.
+      </p>
+    </div>
+  </article>
+
+  <!-- CULTURE -->
+  <article class="article-section">
+    <h2>Culture and Traditions</h2>
+    
+
+    <p>
+      Saudi Arabia culture is deeply rooted in respect, harmony, and multiculturalism.
+      Traditional clothing such as the Thobe and Gutra are still worn
+      during festivals and formal occasions. 
+    </p>
+
+    <p>
+      Religion also plays an important role in Saudi Arabia society. Islam is the official
+      religion, but freedom of worship allows Buddhism, Hinduism, and Christianity to
+      coexist peacefully.
+    </p>
+  </article>
+
+  <!-- PLACES TO VISIT -->
+  <article class="article-section">
+    <h2>Places to Visit</h2>
+    <img src="riyadh.jpg" alt="Places to Visit in Malaysia">
+
+    <p>
+      Saudi Arabia offers a wide range of attractions for all types of travelers.
+      Popular destinations include the A- Balad in Jeddah,
+      the historic city of Al-Ula, and the cool highlands of Taif.
+    </p>
+    </p>
+  </article>
+
+  <!-- FOOD -->
+  <article class="article-section">
+    <h2>Famous Places to Eat and Dine</h2>
+    <img src="saudi restaurant.jpg" alt="Malaysian Food">
+
+    <p>
+      Saudi Arabia cuisine is one of the country’s biggest attractions.
+      Signature dishes such as Chicken mandy, Briyani, and Naan
+      reflect the multicultural background of the nation.
+    </p>
+
+    <p>
+      Street food can be found easily in night markets and hawker centers,
+      while fine dining restaurants are available in major cities offering
+      both local and international cuisine.
+    </p>
+  </article>
+
+  <!-- TRANSPORT -->
+  <article class="article-section">
+    <h2>Transportation</h2>
+    <img src="Saudi-Transportation.jpg" alt="Transportation in Malaysia">
+
+    <p>
+      Transportation in Saudi Arabia is modern and affordable. Major cities are
+      connected by highways, rail services, and domestic flights.
+      MEdina to Mecca has an efficient public transport system including
+      MRT, LRT, and monorail services.
+    </p>
+
+    </p>
+  </article>
+
+  <!-- TRAVEL TIPS -->
+  <article class="article-section">
+    <h2>Travel Tips</h2>
+    
+
+    <p>
+      Travelers are advised to dress modestly when visiting religious places.
+      The climate is hot and humid throughout the year, so light clothing
+      and hydration are important.
+    </p>
+
+    <p>
+      <ul>
+      <li>Respect local customs</li>
+      <li>Dress modestly</li>
+      <li>Plan travel carefully</li>
+      <li>Use local guides</li>
+      <li>Carry identification</li>
+    </ul>
+    </p>
+  </article>
+<article class="article-section">
+  <h2>Famous Songs in Saudi Arabia</h2>
+
+  <p>
+    Music in Saudi Arabia reflects its rich heritage, from traditional Bedouin styles like Samri and Ardah to modern pop and hip-hop. Iconic artists like Mohammed Abdu and festivals such as Jeddah Season showcase the country’s vibrant musical culture.
+  </p>
+
+  <div class="music-embed">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6F21XEUPxbEct2VkzYtzrA?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>  </div>
+</main>
+
+
+  <aside class="sidebar">
+   <div class="sidebar-box">
+  <h3>Popular Stories</h3>
+
+ <a href="https://en.wikipedia.org/wiki/Kabsa#:~:text=Kabsa%20(Arabic:%20%D9%83%D8%A8%D8%B3%D8%A9%2C%20romanized:%20kabsah)%2C%20also%20known,as%20southern%20Iran%20and%20Gaza%20in%20Palestine."
+   target="_blank"
+   rel="noopener noreferrer"
+   class="side-item">
+
+  <img src="kabsa.jpg" alt="Nasi Lemak">
+
+  <div>
+    <p class="side-title"><i>Interesting Facts about Kabsa</i></p>
+  </div>
+</a>
+
+
+ <a href="https://en.wikipedia.org/wiki/Camel"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="side-item">
+
+  <img src="camel.jpg" alt="Nasi Lemak">
+
+  <div>
+    <p class="side-title"><i>The Camel</i></p>
+  </div>
+</a>
+
+
+  <a href="https://www.diriyah.sa/en"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="side-item">
+
+  <img src="diriyah.jpg" alt="Nasi Lemak">
+
+  <div>
+    <p class="side-title"><i>Historic Place:Diriyah</i></p>
+  </div>
+</a>
+
+</div>
+
+<div class="sidebar-box">
+  <h3>Other Countries</h3>
+
+  <a href="afganistan.html" class="side-item">
+  <img src="saudi arabia.jpg" alt="Afganistan">
+  <p class="side-title">Saudi Arabia</p>
+</a>
+
+
+  <a href="china.html" class="side-item">
+  <img src="kuwait.jpg" alt="China">
+  <p class="side-title">Kuwait</p>
+</a>
+
+<a href="thailand.html" class="side-item">
+  <img src="bahrain.jpg" alt="Thailand">
+  <p class="side-title">Bahrain</p>
+</a>
+
+<a href="armenia.html" class="side-item">
+  <img src="lebanon.jpg" alt="Armenia">
+  <p class="side-title">Lebanon</p>
+</a>
+
+<a href="vietnam.html" class="side-item">
+  <img src="yemen.jpg" alt="vietnam">
+  <p class="side-title">Yemen</p>
+</a> 
+
+<a href="indonesia.html" class="side-item">
+  <img src="jordan.jpg" alt="Indonesia">
+  <p class="side-title">Jordan</p>
+</a>
+
+</div>
+
+  </aside>
+</div>
+<section class="newsletter">
+  <h2>THE BEST OF GLOBETREK DELIVERED TO YOUR INBOX</h2>
+  <p>Sign up for inspiring travel stories, guides, and cultural insights.</p>
+</section>
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>LEGAL&#128204 </h4>
+      <a href="#">Privacy and Security</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">© GlobeTrek 2026. All Reserved</a>    
+    </div>
+
+    <div>
+     <h4>OUR SITES&#127760 </h4>
+     <a href="index.html">Home</a>
+     <a href="europe.html">Europe</a>
+     <a href="country.html">Middle-East</a>
+     <a href="asia1.html">Asia</a>
+     <a href="destination.html">Destination</a>
+    </div>
+
+    <div>
+      <h4>JOIN US&#127980 </h4>
+      <a href="joinus.html">Subscribe</a>
+      <a href="#">Customer Service</a>
+      <a href="aboutus.html">About Us</a>
+    </div>
+
+    <div>
+      <h4>FOLLOW US&#128276 </h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>

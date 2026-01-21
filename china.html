@@ -1,0 +1,658 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobeTrek-China</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+
+body {
+  background: #f6f6f6;
+padding-top: 70px;
+}
+
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  border-bottom: 1px solid #ddd;
+  background: white;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+
+}
+.logo img {
+  height: 36px;
+  width: auto;
+  cursor: pointer;
+}
+
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+ font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 8px 14px;
+  width: 180px;
+  font-size: 14px;
+}
+
+.search-box button {
+  border: none;
+  background: black;
+  color: white;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.search-box button:hover {
+  background: #444;
+}
+
+.subscribe {
+  background: #ffcc00;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.subscribe a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.logo-clock {
+  font-size: 10px;
+  color: #808080;
+  margin-top: 1px;
+  font-weight: normal;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+}
+
+
+/* HERO */
+.hero {
+  height: calc(100vh - 70px);
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("china.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: bold;
+  margin: 10px 0;
+  font-family:"Verdana", sans-serif;
+}
+
+.hero p {
+  font-size: 18px;
+  font-family:"Lucida Handwriting", cursive;
+}
+
+/* SECTION */
+section {
+  padding: 80px 60px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+}
+
+.country-article {
+  max-width: 900px;
+  margin: 0;              
+  padding: 20px;
+  font-family: "Georgia", serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* FEATURED */
+.article-featured img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.article-content {
+  margin-top: 25px;
+}
+
+.article-content h1 {
+  font-size: 34px;
+  margin: 10px 0 20px;
+  color: #254D79;
+
+}
+
+/* ARTICLE SECTIONS */
+.article-section {
+  margin-top: 60px;
+}
+
+.article-section h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  border-left: 5px solid #d62828;
+  padding-left: 15px;
+}
+
+.article-section img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.article-section p {
+  margin-bottom: 20px;
+  font-size: 17px;
+}
+
+/* TAG */
+.tag {
+  font-size: 12px;
+  color: #d62828;
+  font-weight: bold;
+}
+.page-layout {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 40px;
+}
+
+.article-media {
+  width: 100%;
+  height: 420px;           
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.article-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      
+}
+
+.music-embed {
+  margin-top: 25px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+
+/* SIDEBAR */
+.sidebar {
+  position: sticky;
+  top: 100px; 
+  align-self: start;
+  max-height: calc(100vh - 120px); 
+  overflow-y: auto;
+  font-family: Georgia, serif;
+}
+
+.sidebar-box {
+  background: white;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.sidebar-box h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* SIDEBAR ITEM */
+.side-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.side-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.side-title {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+.side-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: inherit;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.side-item:hover {
+  background: #f2f2f2;
+}
+
+.side-item img {
+  flex-shrink: 0;
+}
+
+.newsletter {
+  background: url("fuji.jpg") center/cover no-repeat;
+  padding: 100px 40px;
+  text-align: center;
+  color: white;
+}
+
+.newsletter h2 {
+  font-size: 40px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.newsletter p {
+  font-size: 18px;
+}
+
+footer {
+  background: black;
+  color: white;
+  padding: 80px 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+footer h4 {
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+footer a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+  <img src="globtrek.png" alt="My Logo">
+  <div class="logo-clock" id="logoClock"></div>
+</div>
+
+  <nav>
+     <a href="index.html">Home</a>
+    <a href="europe.html">Europe</a>
+    <a href="country.html">Middle-East</a>
+    <a href="asia1.html">Asia</a>
+    <a href="destination.html">Destination</a>
+    <a href="aboutus.html">About Us</a>
+    
+
+  </nav>
+
+  <div class="actions">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search destination..." />
+      <button id="searchBtn">🔍</button>
+    </div>
+    <button class="subscribe"><a href="joinus.html">Join Us</a></button>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <p>DESTINATIONS</p>
+    <h1>China</h1>
+    <p>"Sleeping Giant"</p>
+  </div>
+</div>
+
+<div class="page-layout">
+
+  <main class="country-article">
+
+  <!-- INTRO ARTICLE -->
+  <article class="article-featured">
+   <div class="article-media">
+  <video autoplay muted loop playsinline>
+    <source src="chinavid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<div class="article-content">
+  <span class="tag">COUNTRY GUIDE</span>
+  <h1>Discover China: A Civilization of History, Innovation, and Diversity</h1>
+
+  <p>
+    China is one of the world’s oldest civilizations, known for its vast
+    landscapes, deep cultural heritage, and rapid modernization. From
+    ancient wonders like the Great Wall to futuristic megacities such as
+    Shanghai and Shenzhen, China offers a remarkable journey through time.
+  </p>
+
+  <p>
+    With a history spanning over 5,000 years, China’s traditions, philosophy,
+    and art have shaped East Asia and beyond. Confucian values, family ties,
+    and respect for heritage remain central to Chinese society today.
+  </p>
+</div>
+</article>
+
+<!-- CULTURE -->
+<article class="article-section">
+  <h2>Culture and Traditions</h2>
+
+  <p>
+    Chinese culture emphasizes harmony, respect, and family values.
+    Traditional festivals such as Chinese New Year, Mid-Autumn Festival,
+    and Dragon Boat Festival are celebrated across the country.
+  </p>
+
+  <p>
+    Calligraphy, martial arts, tea culture, and traditional medicine are
+    important cultural practices that have been passed down through
+    generations.
+  </p>
+</article>
+
+<!-- PLACES TO VISIT -->
+<article class="article-section">
+  <h2>Places to Visit</h2>
+  <img src="china-places.jpg" alt="Places to Visit in China">
+
+  <p>
+    China offers countless iconic destinations, including the Great Wall,
+    the Forbidden City in Beijing, and the Terracotta Army in Xi’an.
+  </p>
+
+  <p>
+    Travelers can also explore natural wonders such as Zhangjiajie National
+    Forest Park, the Li River in Guilin, and the scenic landscapes of Tibet.
+  </p>
+</article>
+
+<!-- FOOD -->
+<article class="article-section">
+  <h2>Famous Places to Eat and Dine</h2>
+  <img src="china-food.jpg" alt="Chinese Food">
+
+  <p>
+    Chinese cuisine is incredibly diverse, with famous regional styles such
+    as Sichuan, Cantonese, Shandong, and Huaiyang cuisine. Popular dishes
+    include Peking Duck, Hot Pot, Dumplings, and Kung Pao Chicken.
+  </p>
+
+  <p>
+    Street food markets and traditional teahouses offer authentic flavors,
+    while modern restaurants in major cities blend tradition with innovation.
+  </p>
+</article>
+
+<!-- TRANSPORT -->
+<article class="article-section">
+  <h2>Transportation</h2>
+  <img src="china-transport.jpg" alt="Transportation in China">
+
+  <p>
+    China has one of the world’s most advanced transportation networks.
+    High-speed trains connect major cities quickly and efficiently.
+  </p>
+
+  <p>
+    Urban transport includes subways, buses, taxis, and app-based ride
+    services. Major international airports serve travelers from around
+    the globe.
+  </p>
+</article>
+
+<!-- TRAVEL TIPS -->
+<article class="article-section">
+  <h2>Travel Tips</h2>
+
+  <p>
+    Travelers should be aware of cultural etiquette, such as respecting
+    elders and avoiding sensitive political topics. Internet access may
+    be restricted, so preparation is recommended.
+  </p>
+
+  <ul>
+    <li>Carry passport at all times</li>
+    <li>Use translation apps</li>
+    <li>Download local payment apps</li>
+    <li>Learn basic Mandarin phrases</li>
+    <li>Plan transport in advance</li>
+  </ul>
+</article>
+
+<article class="article-section">
+  <h2>Famous Songs in China</h2>
+
+  <p>
+    Chinese music ranges from traditional instruments like the guzheng and
+    erhu to modern C-pop. Classical melodies and contemporary artists both
+    play an important role in China’s musical landscape.
+  </p>
+</article>
+
+
+
+  <div class="music-embed">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/5vYWbmWrSSBskg28cRmcjg?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>  
+</div>
+</main>
+
+
+  <aside class="sidebar">
+   <div class="sidebar-box">
+  <h3>Popular Stories</h3>
+
+ <a href="https://www.worldometers.info/world-population/population-by-country/#:~:text=List%20of%20countries%20and%20dependencies%20in%20the,urbanization%2C%20urban%20population%2C%20share%20of%20world%20population."
+   target="_blank"
+   rel="noopener noreferrer"
+   class="side-item">
+
+  <img src="china.jpg" alt="Nasi Lemak">
+
+  <div>
+    <p class="side-title"><i>Second Most Population Country</i></p>
+  </div>
+</a>
+
+
+ <a href="https://en.wikipedia.org/wiki/Economy_of_China"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="side-item">
+
+  <img src="chinaeco.jpg" alt="Nasi Lemak">
+
+  <div>
+    <p class="side-title"><i>Economy of China</i></p>
+  </div>
+</a>
+
+
+  <a href="https://www.chinadiscovery.com/articles/five-great-mountains-in-china.html
+   target="_blank"
+   rel="noopener noreferrer"
+   class="side-item">
+
+  <img src="mountchina.jpg" alt="Nasi Lemak">
+
+  <div>
+    <p class="side-title"><i>Greatest Mount of China</i></p>
+  </div>
+</a>
+
+</div>
+
+<div class="sidebar-box">
+  <h3>Other Countries</h3>
+
+  <a href="afganistan.html" class="side-item">
+  <img src="afganistan.jpg" alt="Afganistan">
+  <p class="side-title">Afganistan</p>
+</a>
+
+
+  <a href="georgia.html" class="side-item">
+  <img src="georgia.jpg" alt="China">
+  <p class="side-title">Georgia</p>
+</a>
+
+<a href="thailand.html" class="side-item">
+  <img src="thailand.jpg" alt="Thailand">
+  <p class="side-title">Thailand</p>
+</a>
+
+<a href="armenia.html" class="side-item">
+  <img src="armenia.jpg" alt="Armenia">
+  <p class="side-title">Armenia</p>
+</a>
+
+<a href="singapore.html" class="side-item">
+  <img src="singapore.jpg" alt="Singapore">
+  <p class="side-title">Singapore</p>
+</a> 
+
+<a href="indonesia.html" class="side-item">
+  <img src="indon.jpg" alt="Indonesia">
+  <p class="side-title">Indonesia</p>
+</a>
+
+</div>
+
+  </aside>
+</div>
+<section class="newsletter">
+  <h2>THE BEST OF GLOBETREK DELIVERED TO YOUR INBOX</h2>
+  <p>Sign up for inspiring travel stories, guides, and cultural insights.</p>
+</section>
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>LEGAL&#128204 </h4>
+      <a href="#">Privacy and Security</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">© GlobeTrek 2026. All Reserved</a>    
+    </div>
+
+    <div>
+     <h4>OUR SITES&#127760 </h4>
+     <a href="index.html">Home</a>
+     <a href="europe.html">Europe</a>
+     <a href="country.html">Middle-East</a>
+     <a href="asia1.html">Asia</a>
+     <a href="destination.html">Destination</a>
+    </div>
+
+    <div>
+      <h4>JOIN US&#127980 </h4>
+      <a href="joinus.html">Subscribe</a>
+      <a href="#">Customer Service</a>
+      <a href="aboutus.html">About Us</a>
+    </div>
+
+    <div>
+      <h4>FOLLOW US&#128276 </h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

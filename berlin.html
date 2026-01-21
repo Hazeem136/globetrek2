@@ -1,0 +1,459 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berlin</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+
+body {
+  background: #f6f6f6;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  border-bottom: 1px solid #ddd;
+  background: white;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+
+}
+.logo img {
+  height: 36px;
+  width: auto;
+  cursor: pointer;
+}
+
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 8px 14px;
+  width: 180px;
+  font-size: 14px;
+}
+
+.search-box button {
+  border: none;
+  background: black;
+  color: white;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.search-box button:hover {
+  background: #444;
+}
+.subscribe {
+  background: #ffcc00;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+
+.subscribe a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+
+.logo-clock {
+  font-size: 10px;
+  color: #808080;
+  margin-top: 1px;
+  font-weight: normal;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+}
+
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("berlin1.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: bold;
+  margin: 10px 0;
+  font-family:"Verdana", sans-serif;
+}
+
+.hero p {
+  font-size: 18px;
+  font-family:"Lucida Handwriting", cursive;
+}
+
+/* SECTION */
+section {
+  padding: 80px 60px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+}
+
+/* BODY CONTENT */
+.main-content {
+  background: #transparent;
+}
+
+/* Intro Section */
+.intro {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.intro p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  opacity: 0;               
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 25px;
+}
+
+.card-content h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.card-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+}
+
+
+.card.visible {
+  opacity: 1;               
+  transform: translateY(0);
+}
+
+
+
+.newsletter {
+  background: url("stars.jpg") center/cover no-repeat;
+  padding: 100px 40px;
+  text-align: center;
+  color: white;
+}
+
+.newsletter h2 {
+  font-size: 40px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.newsletter p {
+  font-size: 18px;
+}
+
+footer {
+  background: black;
+  color: white;
+  padding: 80px 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+footer h4 {
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+footer a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.hidden-country {
+  display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">
+  <img src="globtrek.png" alt="My Logo">
+  <div class="logo-clock" id="logoClock"></div>
+</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="europe.html">Europe</a>
+    <a href="country.html">Middle-East</a>
+    <a href="asia1.html">Asia</a>
+    <a href="destination.html">Destination</a>
+    <a href="aboutus.html">About Us</a>
+    
+  </nav>
+
+  <div class="actions">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search destination..." />
+    <button id="searchBtn">🔍</button>
+  </div>
+<button class="subscribe"><a href="joinus.html">Join Us</a></button>
+</div>
+
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <p>DESTINATIONS</p>
+    <h1>Berlin</h1>
+    <p>"In Berlin, history whispers from every corner."</p>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <!-- INTRO -->
+  <section class="intro">
+    <h2>About Berlin</h2>
+    <p>
+      Berlin, the capital of Germany, is a vibrant city known for its rich history, diverse culture, and dynamic arts scene. From iconic landmarks like the Brandenburg Gate to its lively neighborhoods and nightlife, Berlin blends the past and present in a unique, energetic way.
+
+    </p>
+  </section>
+
+  <!-- CULTURE -->
+  <section>
+    <h2 class="section-title">Culture</h2>
+    <div class="card-grid">
+
+      <div class="card">
+        <img src="berlinstreet3.jpg" alt="Berlin Street">
+        <div class="card-content">
+          <h3>Art & Street</h3>
+          <p>
+            Berlin’s streets are alive with color, where every wall tells a story. From bold murals to hidden graffiti, art breaks the boundaries of galleries. In this city, creativity thrives on the streets, turning the ordinary into extraordinary.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="nightlifeberlin.jpg" alt="Nightlife">
+        <div class="card-content">
+          <h3>Music & Nightlife</h3>
+          <p>
+ Berlin comes alive when the sun sets, with clubs, bars, and live music venues buzzing all night. The city is famous for its techno scene, underground parties, and eclectic music festivals. Nightlife in Berlin is more than entertainment.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  <br>
+<br>
+  <!-- SYMBOLS -->
+  
+    <h2 class="section-title">Symbols of Berlin</h2>
+    <div class="card-grid">
+
+      <div class="card">
+        <img src="brandenburg1.jpg" alt="Berlin Gate">
+        <div class="card-content">
+          <h3>Brandenburg Gate</h3>
+          <p>
+          The Brandenburg Gate is an 18th-century neoclassical monument and one of Berlin’s most famous landmarks. It originally symbolized peace and has become a symbol of German unity after the fall of the Berlin Wall. 
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="berlintower.jpg" alt="Berlin Tower">
+        <div class="card-content">
+          <h3>Berlin TV Tower</h3>
+          <p>
+            The Berlin TV Tower, or Fernsehturm, is the tallest structure in Germany, standing at 368 meters. It was built in the 1960s in East Berlin as a symbol of modernity and technological progress. Today, its observation deck offers panoramic views of the city.
+
+          </p>
+        </div>
+      </div>
+
+    </div>
+  <br>
+<br>
+
+  <!-- PLACES TO VISIT -->
+  
+    <h2 class="section-title">Places to Visit</h2>
+    <div class="card-grid">
+
+      <div class="card">
+        <img src="reichstagberlin.jpg" alt="Reichstag">
+        <div class="card-content">
+          <h3>Reichstag Building</h3>
+          <p>
+  The Reichstag is Berlin’s historic parliament building and a symbol of democracy. Its glass dome, designed by architect Norman Foster, allows visitors to look down into the parliamentary chamber. The rooftop terrace offers stunning views of Berlin’s skyline.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="museumisland2.jpg" alt="Museum Island">
+        <div class="card-content">
+          <h3>Museum Island</h3>
+          <p>
+Museum Island is a UNESCO World Heritage Site located in the heart of Berlin. It houses five world-renowned museums, including the Pergamon Museum and the Altes Museum. Visitors can explore art, history, and ancient artifacts all in one location.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<section class="newsletter">
+  <h2>THE BEST OF GLOBETREK DELIVERED TO YOUR INBOX</h2>
+  <p>Sign up for inspiring travel stories, guides, and cultural insights.</p>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>LEGAL&#128204 </h4>
+      <a href="#">Privacy and Security</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">© GlobeTrek 2026. All Reserved</a>    
+    </div>
+
+    <div>
+     <h4>OUR SITES&#127760 </h4>
+     <a href="index.html">Home</a>
+     <a href="europe.html">Europe</a>
+     <a href="country.html">Middle-East</a>
+     <a href="asia1.html">Asia</a>
+     <a href="destination.html">Destination</a>
+    </div>
+
+    <div>
+      <h4>JOIN US&#127980 </h4>
+      <a href="joinus.html">Subscribe</a>
+      <a href="#">Customer Service</a>
+      <a href="aboutus.html">About Us</a>
+    </div>
+
+    <div>
+      <h4>FOLLOW US&#128276 </h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

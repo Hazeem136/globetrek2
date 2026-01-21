@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | GlobeTrek</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* KEEPING ORIGINAL STYLES */
+body {
+  background-color: #f6f6f6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: white;
+}
+
+.logo img {
+  height: 36px;
+}
+
+.logo-clock {
+  font-size: 10px;
+  color: #808080;
+  margin-top: 1px;
+  font-weight: normal;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+}
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* SEARCH BAR */
+.search-box {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.search-box input {
+  border: none;
+  padding: 8px 14px;
+}
+
+.search-box button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.subscribe {
+  background: #ffcc00;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.subscribe a {
+  text-decoration: none;
+  color: black;
+}
+
+/* HERO (UNCHANGED) */
+.hero {
+  height: 100vh;
+  background-image: url("colosseum.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: heroMarquee 25s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero > div {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes heroMarquee {
+  0%   { background-image: url("barcelona.jpg"); }
+  20%  { background-image: url("berlin.jpg"); }
+  40%  { background-image: url("bigben1.jpg"); }
+  60%  { background-image: url("italy3.jpg"); }
+  80%  { background-image: url("paris.jpg"); }
+  100% { background-image: url("greece.jpg"); }
+}
+
+.hero h1 {
+  font-size: 52px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+/* ABOUT SECTIONS */
+section {
+  padding: 80px 60px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.about-text {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* TEAM */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.team-card {
+  background: white;
+  text-align: center;
+  padding: 30px;
+}
+
+.team-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.team-card h3 {
+  margin: 15px 0 5px;
+  color: black !important;
+}
+
+.team-card span {
+  font-size: 14px;
+  color: #666;
+}
+
+/* CONTACT INFORMATION */
+.contact-section {
+  background: #ffffff;
+}
+
+.contact-table-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  overflow-x: auto;
+}
+
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 16px;
+}
+
+.contact-table th,
+.contact-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.contact-table th {
+  background: #f2f2f2;
+  font-weight: bold;
+}
+
+.contact-table tr:hover {
+  background: #fafafa;
+}
+
+/* CONTACT INFORMATION */
+.contact-section {
+  background: #ffffff;
+}
+
+.contact-table-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  overflow-x: auto;
+}
+
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 16px;
+}
+
+.contact-table th,
+.contact-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.contact-table th {
+  background: #f2f2f2;
+  font-weight: bold;
+}
+
+.contact-table tr:hover {
+  background: #fafafa;
+}
+
+
+/* NEWSLETTER */
+.newsletter {
+  background: url("stars.jpg") center/cover no-repeat;
+  padding: 100px 40px;
+  text-align: center;
+  color: white;
+}
+
+/* FOOTER */
+footer {
+  background: black;
+  color: white;
+  padding: 80px 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+footer a {
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Add blue background to specific sections */
+section:nth-of-type(2), /* Our Mission */
+section:nth-of-type(4), /* Our Team */
+section:nth-of-type(6)  /* Why Trust Us? */ {
+  background-color: #254D79; /* Blue background */
+  color: white; /* Optional: ensure text is readable */
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="globetreklogo.jpg" alt="GlobeTrek Logo">
+    <div class="logo-clock" id="logoClock"></div>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="europe.html">Europe</a>
+    <a href="country.html">Middle-East</a>
+    <a href="asia1.html">Asia</a>
+    <a href="destination.html">Destination</a>
+    <a href="aboutus.html">About Us</a>
+  </nav>
+
+  <div class="actions">
+    <div class="search-box">
+      <input type="text" placeholder="Search destination...">
+      <button>🔍</button>
+    </div>
+    <button class="subscribe"><a href="#">Join Us</a></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <p>WHO WE ARE</p>
+    <h1>About GlobeTrek</h1>
+    <p>Travel beyond borders</p>
+  </div>
+</div>
+
+<!-- OUR JOURNEY -->
+<section>
+  <h2 class="section-title">Our Journey</h2>
+  <p class="about-text">
+    GlobeTrek began with a passion for exploration and storytelling.
+    What started as a small travel blog has grown into a global travel guide
+    inspiring millions to discover cultures, cities, and unforgettable experiences
+    across Europe and beyond.
+  </p>
+</section>
+
+<!-- MISSION -->
+<section>
+  <h2 class="section-title">Our Mission</h2>
+  <p class="about-text">
+    Our mission is to make travel accessible, inspiring, and meaningful.
+    We aim to provide trusted guides, cultural insights, and authentic stories
+    that help travelers explore the world with confidence.
+  </p>
+</section>
+
+<!-- VISION -->
+<section>
+  <h2 class="section-title">Our Vision</h2>
+  <p class="about-text">
+    We envision a world where travel connects people, cultures, and ideas.
+    GlobeTrek strives to be a leading global travel platform that encourages
+    curiosity, respect, and lifelong discovery.
+  </p>
+</section>
+
+<!-- TEAM -->
+<section>
+  <h2 class="section-title">Meet Our Team</h2>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="hazeemzal.jpeg" alt="">
+      <h3>Hazeem Zalil</h3>
+      <span>Founder & Editor</span>
+    </div>
+
+    <div class="team-card">
+      <img src="arep.jpeg" alt="">
+      <h3>Ariff Shah</h3>
+      <span>Creative Director</span>
+    </div>
+
+    <div class="team-card">
+      <img src="apek.jpeg" alt="">
+      <h3>Emir Hafiy</h3>
+      <span>Travel Writer</span>
+    </div>
+
+    <div class="team-card">
+      <img src="daidai.jpeg" alt="">
+      <h3>Daiyan Irfan</h3>
+      <span>Photography Lead</span>
+    </div>
+
+    <div class="team-card">
+      <img src="payiz.jpeg" alt="">
+      <h3>Fariez Nurhaqimi</h3>
+      <span>Content Strategist</span>
+    </div>
+
+    <div class="team-card">
+      <img src="yeid.jpeg" alt="">
+      <h3>Shahid</h3>
+      <span>Web Designer</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT INFORMATION -->
+<section class="contact-section">
+  <h2 class="section-title">Contact Information</h2>
+
+  <div class="contact-table-wrapper">
+    <table class="contact-table">
+      <thead>
+        <tr>
+          <th>Department</th>
+          <th>Contact Person</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>General Inquiries</td>
+          <td>Hazeem Zalil</td>
+          <td>hazeemangler@globetrek.com</td>
+          <td>011-5438845</td>
+          <td>New York, USA</td>
+        </tr>
+
+        <tr>
+          <td>Editorial Team</td>
+          <td>Ariff Shah</td>
+          <td>arepcr@globetrek.com</td>
+          <td>011-16897897</td>
+          <td>London, UK</td>
+        </tr>
+
+        <tr>
+          <td>Photography</td>
+          <td>Emir Hafiy</td>
+          <td>apekjpeg@globetrek.com</td>
+          <td>015-58339952</td>
+          <td>Milan, Italy</td>
+        </tr>
+
+        <tr>
+          <td>Support</td>
+          <td>Shahid</td>
+          <td>yeidginola@globetrek.com</td>
+          <td>014-67633822</td>
+          <td>Berlin, Germany</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- WHY TRUST US -->
+<section>
+  <h2 class="section-title">Why Trust Us?</h2>
+
+  <div class="about-text">
+    <ol style="text-align: left; max-width: 900px; margin: 40px auto 0; line-height: 1.8; font-size: 18px;">
+      <li>
+        <strong>Experienced Travel Experts</strong> – Our team consists of seasoned travelers, writers, and photographers who have explored destinations firsthand.
+      </li>
+      <li>
+        <strong>Authentic & Reliable Information</strong> – We provide well-researched guides, honest recommendations, and accurate travel details you can rely on.
+      </li>
+      <li>
+        <strong>Cultural Respect & Insight</strong> – GlobeTrek focuses on promoting cultural understanding, local traditions, and responsible tourism.
+      </li>
+      <li>
+        <strong>Up-to-Date Travel Content</strong> – Our guides are regularly updated to reflect current travel trends, tips, and destination highlights.
+      </li>
+      <li>
+        <strong>Trusted by a Global Community</strong> – Travelers around the world rely on GlobeTrek for inspiration, planning, and unforgettable journeys.
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <h2>THE BEST OF GLOBETREK DELIVERED TO YOUR INBOX</h2>
+  <p>Sign up for inspiring travel stories, guides, and cultural insights.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>LEGAL📌</h4>
+      <a href="#">Privacy and Security</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">© GlobeTrek 2026. All Reserved</a>
+    </div>
+
+    <div>
+      <h4>OUR SITES🌐</h4>
+      <a href="#">Home</a>
+      <a href="#">Europe</a>
+      <a href="#">Middle-East</a>
+      <a href="#">Asia</a>
+      <a href="#">Destination</a>
+    </div>
+
+    <div>
+      <h4>JOIN US🏠</h4>
+      <a href="#">Subscribe</a>
+      <a href="#">Customer Service</a>
+      <a href="#">About Us</a>
+    </div>
+
+    <div>
+      <h4>FOLLOW US🔔</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

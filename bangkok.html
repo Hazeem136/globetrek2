@@ -1,0 +1,457 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shanghai</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+
+body {
+  background: #f6f6f6;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  border-bottom: 1px solid #ddd;
+  background: white;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+
+}
+.logo img {
+  height: 36px;
+  width: auto;
+  cursor: pointer;
+}
+
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 8px 14px;
+  width: 180px;
+  font-size: 14px;
+}
+
+.search-box button {
+  border: none;
+  background: black;
+  color: white;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.search-box button:hover {
+  background: #444;
+}
+.subscribe {
+  background: #ffcc00;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.subscribe a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.logo-clock {
+  font-size: 10px;
+  color: #808080;
+  margin-top: 1px;
+  font-weight: normal;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("bangkok.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: bold;
+  margin: 10px 0;
+  font-family:"Verdana", sans-serif;
+}
+
+.hero p {
+  font-size: 18px;
+  font-family:"Lucida Handwriting", cursive;
+}
+
+/* SECTION */
+section {
+  padding: 80px 60px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+}
+
+/* BODY CONTENT */
+.main-content {
+  background: #transparent;
+}
+
+/* Intro Section */
+.intro {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.intro p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  opacity: 0;               
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 25px;
+}
+
+.card-content h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.card-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+}
+
+
+.card.visible {
+  opacity: 1;               
+  transform: translateY(0);
+}
+
+
+
+.newsletter {
+  background: url("fuji.jpg") center/cover no-repeat;
+  padding: 100px 40px;
+  text-align: center;
+  color: white;
+}
+
+.newsletter h2 {
+  font-size: 40px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.newsletter p {
+  font-size: 18px;
+}
+
+footer {
+  background: black;
+  color: white;
+  padding: 80px 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+footer h4 {
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+footer a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.hidden-country {
+  display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+  <img src="globtrek.png" alt="My Logo">
+  <div class="logo-clock" id="logoClock"></div>
+</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="europe.html">Europe</a>
+    <a href="country.html">Middle-East</a>
+    <a href="asia1.html">Asia</a>
+    <a href="destination.html">Destination</a>
+    <a href="aboutus.html">About Us</a>
+    
+  </nav>
+
+  <div class="actions">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search destination..." />
+    <button id="searchBtn">🔍</button>
+ </div>
+  <button class="subscribe"><a href="#">Join Us</a></button>
+</div>
+
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <p>DESTINATIONS</p>
+    <h1>Bangkok</h1>
+    <p>"City of Angels"</p>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <!-- INTRO -->
+  <section class="intro">
+    <h2>About Bangkok</h2>
+    <p>
+      Bangkok, Thailand's vibrant capital, is a captivating blend of ancient traditions and modern dynamism, famous for its ornate temples, bustling street life, rich cuisine, and towering skyscrapers, all centered around the Chao Phraya River
+    </p>
+  </section>
+
+  <!-- CULTURE -->
+  <section>
+    <h2 class="section-title">Culture</h2>
+    <div class="card-grid">
+
+      <div class="card">
+        <img src="thaiculture.jpg" alt="Shanghai Culture">
+        <div class="card-content">
+          <h3>Buddhism</h3>
+          <p>
+           The dominant religion shapes architecture, daily life, and values, seen in countless temples, Buddha statues, and rituals like making merit at Wats.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="thaiculture1.jpg" alt="Opera">
+        <div class="card-content">
+          <h3Arts & Architecture</h3>
+          <p>
+          A blend of ornate traditional Thai design (like the Grand Palace) and modern urban development, evident in both temples and shopping malls.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  <br>
+<br>
+  <!-- SYMBOLS -->
+  
+    <h2 class="section-title">Symbols of Shanghai</h2>
+    <div class="card-grid">
+
+      <div class="card">
+        <img src="thaiplace.jpg" alt="The Bund">
+        <div class="card-content">
+          <h3>Wat Arun</h3>
+          <p>
+            A famous riverfront landmark symbolizing the dawn and Buddhist cosmology, known for its Khmer-style prang.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="thaiplace1.jpg" alt="Oriental Pearl Tower">
+        <div class="card-content">
+          <h3>City Pillar Shrine (Lak Mueang)</h3>
+          <p>
+           The spiritual anchor of Bangkok, housing guardian spirits believed to protect the city and its people.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  <br>
+<br>
+
+  <!-- PLACES TO VISIT -->
+  
+    <h2 class="section-title">Places to Visit</h2>
+    <div class="card-grid">
+
+      <div class="card">
+        <img src="watpho.jpg" alt="Yu Garden">
+        <div class="card-content">
+          <h3>Wat Pho</h3>
+          <p>
+           Home to the impressive Reclining Buddha statue. 
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="skywalk.jpg" alt="Nanjing Road">
+        <div class="card-content">
+          <h3>MahaNakhon SkyWalk</h3>
+          <p>
+            One of the busiest shopping streets in the world, perfect for
+            experiencing Shanghai’s modern lifestyle.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<section class="newsletter">
+  <h2>THE BEST OF GLOBETREK DELIVERED TO YOUR INBOX</h2>
+  <p>Sign up for inspiring travel stories, guides, and cultural insights.</p>
+</section>
+
+<footer>
+
+  <div class="footer-grid">
+    <div>
+      <h4>LEGAL&#128204 </h4>
+      <a href="#">Privacy and Security</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">© GlobeTrek 2026. All Reserved</a>    
+    </div>
+
+    <div>
+     <h4>OUR SITES&#127760 </h4>
+     <a href="index.html">Home</a>
+     <a href="europe.html">Europe</a>
+     <a href="country.html">Middle-East</a>
+     <a href="asia1.html">Asia</a>
+     <a href="destination.html">Destination</a>
+    </div>
+
+    <div>
+      <h4>JOIN US&#127980 </h4>
+      <a href="joinus.html">Subscribe</a>
+      <a href="#">Customer Service</a>
+      <a href="aboutus.html">About Us</a>
+    </div>
+
+    <div>
+      <h4>FOLLOW US&#128276 </h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

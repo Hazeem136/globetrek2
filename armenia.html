@@ -1,0 +1,653 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobeTrek-Armenia</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+
+body {
+  background: #f6f6f6;
+padding-top: 70px;
+}
+
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  border-bottom: 1px solid #ddd;
+  background: white;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+
+}
+.logo img {
+  height: 36px;
+  width: auto;
+  cursor: pointer;
+}
+
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+ font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 8px 14px;
+  width: 180px;
+  font-size: 14px;
+}
+
+.search-box button {
+  border: none;
+  background: black;
+  color: white;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.search-box button:hover {
+  background: #444;
+}
+
+.subscribe {
+  background: #ffcc00;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.subscribe a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.logo-clock {
+  font-size: 10px;
+  color: #808080;
+  margin-top: 1px;
+  font-weight: normal;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+}
+
+
+/* HERO */
+.hero {
+  height: calc(100vh - 70px);
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("armenia.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: bold;
+  margin: 10px 0;
+  font-family:"Verdana", sans-serif;
+}
+
+.hero p {
+  font-size: 18px;
+  font-family:"Lucida Handwriting", cursive;
+}
+
+/* SECTION */
+section {
+  padding: 80px 60px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+}
+
+.country-article {
+  max-width: 900px;
+  margin: 0;              
+  padding: 20px;
+  font-family: "Georgia", serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* FEATURED */
+.article-featured img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.article-content {
+  margin-top: 25px;
+}
+
+.article-content h1 {
+  font-size: 34px;
+  margin: 10px 0 20px;
+  color: #254D79;
+
+}
+
+/* ARTICLE SECTIONS */
+.article-section {
+  margin-top: 60px;
+}
+
+.article-section h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  border-left: 5px solid #d62828;
+  padding-left: 15px;
+}
+
+.article-section img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.article-section p {
+  margin-bottom: 20px;
+  font-size: 17px;
+}
+
+/* TAG */
+.tag {
+  font-size: 12px;
+  color: #d62828;
+  font-weight: bold;
+}
+.page-layout {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 40px;
+}
+
+.article-media {
+  width: 100%;
+  height: 420px;           
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.article-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      
+}
+
+.music-embed {
+  margin-top: 25px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+
+/* SIDEBAR */
+.sidebar {
+  position: sticky;
+  top: 100px; 
+  align-self: start;
+  max-height: calc(100vh - 120px); 
+  overflow-y: auto;
+  font-family: Georgia, serif;
+}
+
+.sidebar-box {
+  background: white;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.sidebar-box h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* SIDEBAR ITEM */
+.side-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.side-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.side-title {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.side-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: inherit;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.side-item:hover {
+  background: #f2f2f2;
+}
+
+.side-item img {
+  flex-shrink: 0;
+}
+
+
+
+.newsletter {
+  background: url("fuji.jpg") center/cover no-repeat;
+  padding: 100px 40px;
+  text-align: center;
+  color: white;
+}
+
+.newsletter h2 {
+  font-size: 40px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.newsletter p {
+  font-size: 18px;
+}
+
+footer {
+  background: black;
+  color: white;
+  padding: 80px 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+footer h4 {
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+footer a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+  <img src="globtrek.png" alt="My Logo">
+  <div class="logo-clock" id="logoClock"></div>
+</div>
+
+  <nav>
+     <a href="index.html">Home</a>
+    <a href="europe.html">Europe</a>
+    <a href="country.html">Middle-East</a>
+    <a href="asia1.html">Asia</a>
+    <a href="destination.html">Destination</a>
+    <a href="aboutus.html">About Us</a>
+    
+
+  </nav>
+
+  <div class="actions">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search destination..." />
+      <button id="searchBtn">🔍</button>
+    </div>
+    <button class="subscribe"><a href="joinus.html">Join Us</a></button>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <p>DESTINATIONS</p>
+    <h1>Armenia</h1>
+    <p>"One Nation, One Culture"</p>
+  </div>
+</div>
+
+<div class="page-layout">
+
+  <main class="country-article">
+
+  <!-- INTRO ARTICLE -->
+  <article class="article-featured">
+   <div class="article-media">
+  <video autoplay muted loop playsinline>
+    <source src="armeniavid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+    <div class="article-content">
+      <span class="tag">COUNTRY GUIDE</span>
+      <h1>Discover Armenia: A Cradle of Civilization and Faith</h1>
+
+      <p>
+        Armenia is a landlocked country located in the South Caucasus region,
+        known for its ancient history, dramatic landscapes, and rich cultural identity.
+        It is recognized as one of the world’s oldest civilizations.
+      </p>
+
+      <p>
+        As the first nation to adopt Christianity as a state religion,
+        Armenia’s heritage is deeply reflected in its monasteries,
+        traditions, and strong national identity.
+      </p>
+    </div>
+  </article>
+
+  <!-- CULTURE -->
+  <article class="article-section">
+    <h2>Culture and Traditions</h2>
+    
+<p>
+        Armenian culture places strong emphasis on family, faith, and hospitality.
+        Traditional music, dance, and crafts continue to play an important role
+        in everyday life.
+    </p>
+
+    <p>
+        Celebrations often revolve around religious festivals,
+        community gatherings, and centuries-old customs passed down through generations.
+    </p>  </article>
+
+  <!-- PLACES TO VISIT -->
+  <article class="article-section">
+    <h2>Places to Visit</h2>
+    <img src="geghard.jpg" alt="Places to Visit in Malaysia">
+
+    <p>
+        Armenia is home to many historic landmarks, including the ancient monasteries
+        of Geghard and Tatev, as well as the capital city Yerevan,
+        one of the world’s oldest continuously inhabited cities.
+    </p>
+
+    <p>
+        Nature lovers can explore Lake Sevan, Mount Aragats,
+        and scenic valleys filled with historic architecture.
+    </p>
+  </article>
+
+  <!-- FOOD -->
+  <article class="article-section">
+    <h2>Famous Places to Eat and Dine</h2>
+    <img src="khorovats.jpg" alt="Malaysian Food">
+
+  <p>
+        Armenian cuisine is rich and hearty, featuring dishes such as Khorovats (grilled meat),
+        Dolma, and Lavash, a traditional flatbread recognized by UNESCO.
+    </p>
+
+    <p>
+        Meals are often enjoyed with family and friends,
+        highlighting the importance of togetherness and hospitality.
+    </p>
+
+  </article>
+
+  <!-- TRANSPORT -->
+  <article class="article-section">
+    <h2>Transportation</h2>
+     
+
+    <p>
+        Transportation in Armenia is centered around road networks,
+        with buses and minibuses connecting major cities and towns.
+    </p>
+
+    <p>
+        Taxis and ride services are commonly used in Yerevan,
+        making travel within the capital convenient and affordable.
+    </p>
+  </article>
+
+  <!-- TRAVEL TIPS -->
+  <article class="article-section">
+    <h2>Travel Tips</h2>
+    
+
+<p>
+        Visitors should dress respectfully when visiting religious sites
+        and be mindful of local customs.
+    </p>
+
+    <ul>
+      <li>Respect religious traditions</li>
+      <li>Dress modestly in monasteries</li>
+      <li>Learn basic local phrases</li>
+      <li>Carry cash in rural areas</li>
+      <li>Plan travel routes in advance</li>
+    </ul>    
+</p>
+  </article>
+<article class="article-section">
+  <h2>Famous Songs in Afganistan</h2>
+
+  <p>
+    Music plays an important role in Armenia culture, reflecting its rich
+    multicultural identity. Here are some iconic Malaysian songs loved by locals
+    and visitors alike.
+  </p>
+
+  <div class="music-embed">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5gHR8aj3itCt3LK9NkmaYN?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</main>
+
+
+
+  <aside class="sidebar">
+   <div class="sidebar-box">
+  <h3>Popular Stories</h3>
+
+<a href="https://en.wikipedia.org/wiki/Mount_Ararat"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="side-item">
+
+  <img src="mount.jpg" alt="Nasi Lemak">
+
+  <div>
+    <p class="side-title"><i>Mount Ararat</i></p>
+  </div>
+</a>
+
+
+ <a href="https://www.tatever.am/en/wings-of-tatev-aerial-roadway"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="side-item">
+
+  <img src="tatev.jpg" alt="Nasi Lemak">
+
+  <div>
+    <p class="side-title"><i>The Longest Tramway</i></p>
+  </div>
+</a>
+
+
+  <a href="https://explorearmenia.am/en/information/16-interesting-facts-about-armenia.html"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="side-item">
+
+  <img src="16fact.jpg" alt="Nasi Lemak">
+
+  <div>
+    <p class="side-title"><i>16 Facts About Armenia</i></p>
+  </div>
+</a>
+
+</div>
+
+<div class="sidebar-box">
+  <h3>Other Countries</h3>
+
+  <a href="singapore.html" class="side-item">
+  <img src="singapore.jpg" alt="Singapore">
+  <p class="side-title">Singapore</p>
+</a>
+
+
+  <a href="china.html" class="side-item">
+  <img src="china.jpg" alt="China">
+  <p class="side-title">China</p>
+</a>
+
+<a href="vietnam.html" class="side-item">
+  <img src="vietnam.jpg" alt="Thailand">
+  <p class="side-title">Vietnam</p>
+</a>
+
+<a href="georgia.html" class="side-item">
+  <img src="georgia.jpg" alt="Armenia">
+  <p class="side-title">Georgia</p>
+</a>
+
+<a href="vietnam.html" class="side-item">
+  <img src="vietnam.jpg" alt="vietnam">
+  <p class="side-title">Vietnam</p>
+</a> 
+
+<a href="malaysia.html" class="side-item">
+  <img src="malay.jpg" alt="Indonesia">
+  <p class="side-title">Malaysia</p>
+</a>
+
+  </aside>
+</div>
+<section class="newsletter">
+  <h2>THE BEST OF GLOBETREK DELIVERED TO YOUR INBOX</h2>
+  <p>Sign up for inspiring travel stories, guides, and cultural insights.</p>
+</section>
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>LEGAL&#128204 </h4>
+      <a href="#">Privacy and Security</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">© GlobeTrek 2026. All Reserved</a>    
+    </div>
+
+    <div>
+     <h4>OUR SITES&#127760 </h4>
+     <a href="index.html">Home</a>
+     <a href="europe.html">Europe</a>
+     <a href="country.html">Middle-East</a>
+     <a href="asia1.html">Asia</a>
+     <a href="destination.html">Destination</a>
+    </div>
+
+    <div>
+      <h4>JOIN US&#127980 </h4>
+      <a href="joinus.html">Subscribe</a>
+      <a href="#">Customer Service</a>
+      <a href="aboutus.html">About Us</a>
+    </div>
+
+    <div>
+      <h4>FOLLOW US&#128276 </h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

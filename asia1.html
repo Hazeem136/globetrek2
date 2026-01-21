@@ -1,0 +1,688 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobeTrek Asia Travel Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+
+body {
+  background-color: #f6f6f6;
+}
+
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  border-bottom: 0px solid ;
+  background: white;
+  
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+
+}
+.logo img {
+  height: 36px;
+  width: auto;
+  cursor: pointer;
+}
+
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+/* SEARCH BAR */
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 8px 14px;
+  width: 180px;
+  font-size: 14px;
+}
+
+.search-box button {
+  border: none;
+  background: black;
+  color: white;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.search-box button:hover {
+  background: #444;
+}
+
+.subscribe {
+  background: #ffcc00;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+ 
+}
+
+.subscribe a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.logo-clock {
+  font-size: 10px;
+  color: #808080;
+  margin-top: 1px;
+  font-weight: normal;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+}
+
+.hero {
+  height: 100vh;
+  background-image:
+    url("tajmahal1.jpg"),
+    url("thailand.jpg"),
+    url("bangkok.jpg"),
+    url("vietnam.jpg"),
+    url("indon.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: heroMarquee 25s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+/* Dark overlay */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation */
+@keyframes heroMarquee {
+  0%   { background-image: url("tajmahal1.jpg"); }
+  20%  { background-image: url("thailand.jpg"); }
+  40%  { background-image: url("bangkok.jpg"); }
+  60%  { background-image: url("vietnam.jpg"); }
+  80%  { background-image: url("indon.jpg"); }
+  100% { background-image: url("tajmahal1.jpg"); }
+}
+
+
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: bold;
+  margin: 10px 0;
+  font-family:"Verdana", sans-serif;
+}
+
+.hero p {
+  font-size: 18px;
+  font-family:"Lucida Handwriting", cursive;
+}
+
+/* SECTION */
+section {
+  padding: 80px 60px;
+}
+
+.section-title {
+  text-align: center;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  color: #000000;
+}
+
+
+/* FEATURED CITIES */.city-card {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.city-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* ZOOM EFFECT */
+.city-card:hover img {
+  transform: scale(1.12);
+}
+
+/* OVERLAY */
+.city-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.city-card:hover .city-overlay {
+  opacity: 1;
+}
+
+.city-overlay h3 {
+  color: white;
+  font-size: 28px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.countries-bg {
+  background-color: #254D79;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.countries-bg .section-title {
+  color: white;
+}
+
+
+/* SEE GUIDE BUTTON */
+.guide-btn {
+  text-decoration: none;
+  padding: 10px 22px;
+  border: 2px solid white;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.guide-btn:hover {
+  background: white;
+  color: black;
+}
+
+
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.city-card {
+  height: 380px;
+  position: relative;
+  overflow: hidden;
+}
+
+.city-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.city-card h3 {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 28px;
+  letter-spacing: 3px;
+}
+
+.travel-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.card {
+  background: white;
+  overflow: hidden;
+}
+
+.category {
+  display: block;
+  font-size: 12px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+
+.card-large, .card-small .img-container {
+  overflow: hidden; 
+  position: relative;
+}
+
+.card-large {
+  flex: 2;
+  height: 500px;
+}
+
+.card-small .img-container {
+  height: 300px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease; /* Controls zoom speed */
+}
+
+.card:hover img {
+  transform: scale(1.1); /* Zoom in 10% */
+}
+
+.card-content-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  z-index: 2;
+}
+
+.card-large h2 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.card-small {
+  flex: 1; /* Takes up less space */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+
+.card-content-below {
+  padding: 30px;
+}
+
+.card-small h2 {
+  font-size: 28px;
+  margin: 10px 0 20px 0;
+  color: #1a1a1a;
+}
+
+
+.see-guide {
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #000;
+  letter-spacing: 1px;
+  border-bottom: 2px solid transparent;
+  transition: border 0.3s;
+}
+
+.see-guide:hover {
+  border-bottom: 2px solid #000;
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+}
+
+.load-more button {
+  background: black;
+  color: white;
+  padding: 15px 40px;
+  border: none;
+  font-size: 14px;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+.newsletter {
+  background: url("fuji.jpg") center/cover no-repeat;
+  padding: 100px 40px;
+  text-align: center;
+  color: white;
+}
+
+.newsletter h2 {
+  font-size: 40px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.newsletter p {
+  font-size: 18px;
+}
+
+footer {
+  background: black;
+  color: white;
+  padding: 80px 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+footer h4 {
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+footer a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.hidden-country {
+  display: none;
+}
+
+</style>
+</head>
+
+
+
+
+
+
+
+
+<body>
+
+<header>
+  <div class="logo">
+  <img src="globtrek.png" alt="My Logo">
+  <div class="logo-clock" id="logoClock"></div>
+</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="europe.html">Europe</a>
+    <a href="country.html">Middle-East</a>
+    <a href="asia1.html">Asia</a>
+    <a href="destination.html">Destination</a>
+    <a href="aboutus.html">About Us</a>
+    
+  </nav>
+
+  <div class="actions">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search destination..." />
+    <button id="searchBtn">🔍</button>
+  </div>
+  <button class="subscribe"><a href="joinus.html">Join Us</a></button>
+</div>
+
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <p>DESTINATIONS</p>
+    <h1>Asia Travel Guide</h1>
+    <p>Latest travel stories about Asia</p>
+  </div>
+</div>
+
+<!-- FEATURED CITIES -->
+<section>
+  <h2 class="section-title">FEATURED CITIES</h2>
+  <div class="city-grid">
+    <div class="city-card">
+  <img src="shanghai.jpg" alt="Shanghai">
+<h3>SHANGHAI</h3>
+  <div class="city-overlay">
+    <a href="shanghai.html" class="guide-btn">SEE GUIDE</a>
+  </div>
+</div>
+
+    <div class="city-card">
+      <img src="tokyo.jpg">
+      <h3>TOKYO</h3>
+   <div class="city-overlay">
+    <a href="tokyo.html" class="guide-btn">SEE GUIDE</a>
+  </div>
+</div>
+
+    <div class="city-card">
+      <img src="bangkok.jpg">
+      <h3>BANGKOK</h3>
+    <div class="city-overlay">
+    <a href="bangkok.html" class="guide-btn">SEE GUIDE</a>
+  </div>
+</div>
+</div>
+</section>
+
+
+<!-- COUNTRIES -->
+<div class="countries-bg">
+<section>
+  <h2 class="section-title">COUNTRIES IN ASIA</h2>
+
+  <div class="travel-container">
+  <div class="card card-large">
+    <img src="afganistan.jpg" alt="Afghanistan"> <div class="card-content-overlay">
+<a href="afganistan.html" class="see-guide">SEE GUIDE</a>
+      <span class="category">TRAVEL</span>
+      <h2>Afghanistan</h2>
+
+    </div>
+  </div>
+
+  <div class="card card-small">
+    <div class="img-container"> <img src="armenia.jpg" alt="Armenia">
+    </div>
+    <div class="card-content-below">
+      <span class="category">TRAVEL</span>
+      <h2>Armenia</h2>
+      <a href="armenia.html" class="see-guide">SEE GUIDE</a>
+    </div>
+  </div>
+</div>
+</section>
+</div>
+
+<section>
+
+<div class="travel-container">
+ <div class="card card-small">
+    <div class="img-container"> <img src="azerbaijan.jpg" alt="Azerbaijan">
+    </div>
+    <div class="card-content-below">
+      <span class="category">TRAVEL</span>
+      <h2>Azerbaijan</h2>
+      <a href="azerbaijan.html" class="see-guide">SEE GUIDE</a>
+    </div>
+  </div>
+<div class="card card-small">
+    <div class="img-container"> <img src="china.jpg" alt="China">
+    </div>
+    <div class="card-content-below">
+      <span class="category">TRAVEL</span>
+      <h2>China</h2>
+      <a href="china.html" class="see-guide">SEE GUIDE</a>
+    </div>
+  </div>
+<div class="card card-small">
+    <div class="img-container"> <img src="georgia.jpg" alt="Georgia">
+    </div>
+    <div class="card-content-below">
+      <span class="category">TRAVEL</span>
+      <h2>Georgia</h2>
+      <a href="georgia.html" class="see-guide">SEE GUIDE</a>
+    </div>
+  </div>
+<div class="card card-small">
+    <div class="img-container"> <img src="indon.jpg" alt="Indonesia">
+    </div>
+    <div class="card-content-below">
+      <span class="category">TRAVEL</span>
+      <h2>Indonesia</h2>
+      <a href="indonesia.html" class="see-guide">SEE GUIDE</a>
+    </div>
+  </div>
+</div>
+<br>
+<div class="travel-container">
+
+<div class="card card-small hidden-country">
+  <div class="img-container">
+    <img src="malay.jpg" alt="Philippines">
+  </div>
+  <div class="card-content-below">
+    <span class="category">TRAVEL</span>
+    <h2>Malaysia</h2>
+    <a href="malaysia.html" class="see-guide">SEE GUIDE</a>
+  </div>
+</div>
+<div class="card card-small hidden-country">
+  <div class="img-container">
+    <img src="singapore.jpg" alt="Singapore">
+  </div>
+  <div class="card-content-below">
+    <span class="category">TRAVEL</span>
+    <h2>Singapore</h2>
+    <a href="singapore.html" class="see-guide">SEE GUIDE</a>
+  </div>
+</div>
+<div class="card card-small hidden-country">
+  <div class="img-container">
+    <img src="thailand.jpg" alt="Thailand">
+  </div>
+  <div class="card-content-below">
+    <span class="category">TRAVEL</span>
+    <h2>Thailand</h2>
+    <a href="thailand.html" class="see-guide">SEE GUIDE</a>
+  </div>
+</div>
+<div class="card card-small hidden-country">
+  <div class="img-container">
+    <img src="vietnam.jpg" alt="Vietnam">
+  </div>
+  <div class="card-content-below">
+    <span class="category">TRAVEL</span>
+    <h2>Vietnam</h2>
+    <a href="vietnam.html" class="see-guide">SEE GUIDE</a>
+  </div>
+</div>
+
+</div>
+</section>
+
+<div class="load-more">
+  <button id="loadMoreBtn">LOAD MORE</button>
+</div>
+
+<section class="newsletter">
+  <h2>THE BEST OF GLOBETREK DELIVERED TO YOUR INBOX</h2>
+  <p>Sign up for inspiring travel stories, guides, and cultural insights.</p>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>LEGAL&#128204 </h4>
+      <a href="#">Privacy and Security</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">© GlobeTrek 2026. All Reserved</a>    
+    </div>
+
+    <div>
+     <h4>OUR SITES&#127760 </h4>
+     <a href="index.html">Home</a>
+     <a href="europe.html">Europe</a>
+     <a href="country.html.html">Middle-East</a>
+     <a href="asia1.html">Asia</a>
+     <a href="destination.html">Destination</a>
+    </div>
+
+    <div>
+      <h4>JOIN US&#127980 </h4>
+      <a href="joinus.html">Subscribe</a>
+      <a href="#">Customer Service</a>
+      <a href="aboutus.html">About Us</a>
+    </div>
+
+    <div>
+      <h4>FOLLOW US&#128276 </h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href url ="https://www.tiktok.com/foryou?lang=en">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

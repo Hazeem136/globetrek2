@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobeTrek - Join Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ====== SAME STYLES AS YOUR SINGAPORE PAGE ====== */
+body { background: #f6f6f6; padding-top: 70px; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Helvetica, sans-serif; }
+
+/* NAVBAR */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  border-bottom: 1px solid #ddd;
+  background: white;
+}
+
+.logo { font-weight: bold; font-size: 18px; }
+.logo img { height: 36px; width: auto; cursor: pointer; }
+nav a { margin: 0 12px; text-decoration: none; color: black; font-weight: bold;   font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;}
+.actions { display: flex; align-items: center; gap: 15px; }
+.subscribe { background: #ffcc00; padding: 10px 16px; font-weight: bold; border: none; cursor: pointer; }
+.subscribe a { margin: 0 12px; text-decoration: none; color: black; font-weight: bold; }
+.logo-clock { font-size: 10px; color: #808080; margin-top: 1px; font-weight: normal; text-align: center; font-family: "Lucida Console", monospace; }
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.hero h1 { 
+font-size: 52px; 
+font-weight: bold; 
+margin: 10px 0; 
+font-family:"Verdana", sans-serif;
+ }
+
+.hero p { 
+font-size: 18px; 
+font-family:"Lucida Handwriting", cursive; 
+}
+
+/* SECTION */
+section { padding: 80px 60px; }
+.section-title { text-align: center; font-size: 40px; letter-spacing: 2px; margin-bottom: 60px; }
+
+/* PAGE LAYOUT */
+.page-layout { 
+  max-width: 1200px; 
+  margin: 40px auto; 
+  padding: 20px; 
+  display: grid; 
+  grid-template-columns: 3fr 1fr; 
+  gap: 40px; 
+}
+
+/* MAIN CONTENT */
+.main-content { 
+  background: white; 
+  padding: 40px; 
+  border-radius: 12px; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
+  font-family: Georgia, serif; 
+  line-height: 1.8; 
+  color: #333; 
+}
+.main-content h2 { margin-bottom: 20px; }
+.main-content ul { margin-left: 20px; margin-bottom: 20px; }
+
+/* SIDEBAR - AUTO SCROLLING IMAGES */
+.sidebar { 
+  background: white; 
+  padding: 20px; 
+  border-radius: 12px; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  height: 500px; 
+  overflow: hidden; 
+  position: relative;
+}
+
+.scroll-gallery {
+  display: flex;
+  flex-direction: column;
+  animation: scrollImages 20s linear infinite;
+}
+
+.scroll-gallery img {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Animation keyframes for vertical scrolling */
+@keyframes scrollImages {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); } /* scroll half because we duplicate images for loop */
+}
+
+/* FORM */
+.join-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+.join-form input { padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; }
+.join-form button { background: #ffcc00; border: none; padding: 12px; font-weight: bold; cursor: pointer; font-size: 16px; border-radius: 8px; transition: background 0.3s; }
+.join-form button:hover { background: #e6b800; }
+
+/* NEWSLETTER & FOOTER */
+.newsletter { background: url("fuji.jpg") center/cover no-repeat; padding: 100px 40px; text-align: center; color: white; }
+.newsletter h2 { font-size: 40px; letter-spacing: 3px; margin-bottom: 15px; }
+.newsletter p { font-size: 18px; }
+footer { background: black; color: white; padding: 80px 60px; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
+footer h4 { letter-spacing: 3px; margin-bottom: 20px; }
+footer a { display: block; color: #ccc; text-decoration: none; margin-bottom: 10px; font-size: 14px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .page-layout { grid-template-columns: 1fr; gap: 20px; }
+  .sidebar { height: auto; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="globtrek.png" alt="My Logo">
+    <div class="logo-clock" id="logoClock"></div>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="europe.html">Europe</a>
+    <a href="country.html">Middle-East</a>
+    <a href="asia1.html">Asia</a>
+    <a href="destination.html">Destination</a>
+    <a href="aboutus.html">About Us</a>
+  </nav>
+
+  <div class="actions">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search destination..." />
+      <button id="searchBtn">🔍</button>
+    </div>
+    <button class="subscribe"><a href="joinus.html">Join Us</a></button>
+  </div>
+</header>
+
+<div class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="joinusvid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-content">
+    <p>JOIN GLOBETREK</p>
+    <h1>Membership</h1>
+    <p>Unlock Exclusive Benefits</p>
+  </div>
+</div>
+
+<div class="page-layout">
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <h2>Why Join GlobeTrek?</h2>
+    <ul>
+      <li>Get access to exclusive travel guides and tips.</li>
+      <li>Receive priority updates on featured destinations.</li>
+      <li>Discounts on travel packages and events.</li>
+      <li>Personalized travel recommendations.</li>
+      <li>Newsletter subscription with insider insights.</li>
+    </ul>
+
+    <p><strong>Membership Fee:</strong> RM 67.69</p>
+
+    <h2>Sign Up Now</h2>
+    <form class="join-form" id="joinForm">
+      <input type="email" id="email" placeholder="Enter your email" required>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required>
+      <button type="button" onclick="processPayment()">Proceed to Payment</button>
+    </form>
+  </main>
+
+  <!-- SIDEBAR - AUTO SCROLLING IMAGES -->
+  <aside class="sidebar">
+    <h3>Travel Inspirations</h3>
+    <div class="scroll-gallery">
+      <img src="paris.jpg" alt="Paris">
+      <img src="turkey.jpg" alt="Turkey">
+      <img src="tokyo.jpg" alt="Tokyo">
+      <img src="shanghai.jpg" alt="Maldives">
+      <img src="london.jpg" alt="London">
+      <!-- Duplicate for infinite loop -->
+      <img src="paris.jpg" alt="Paris">
+      <img src="bali.jpg" alt="Bali">
+      <img src="tokyo.jpg" alt="Tokyo">
+      <img src="shanghai.jpg" alt="Maldives">
+      <img src="london.jpg" alt="London">
+    </div>
+  </aside>
+</div>
+
+<section class="newsletter">
+  <h2>THE BEST OF GLOBETREK DELIVERED TO YOUR INBOX</h2>
+  <p>Sign up for inspiring travel stories, guides, and cultural insights.</p>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>LEGAL&#128204 </h4>
+      <a href="#">Privacy and Security</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">© GlobeTrek 2026. All Reserved</a>    
+    </div>
+
+    <div>
+     <h4>OUR SITES&#127760 </h4>
+     <a href="#">Home</a>
+     <a href="europe.html">Europe</a>
+     <a href="#">Middle-East</a>
+     <a href="asia1.html">Asia</a>
+     <a href="#">Destination</a>
+    </div>
+
+    <div>
+      <h4>JOIN US&#127980 </h4>
+      <a href="#">Subscribe</a>
+      <a href="#">Customer Service</a>
+      <a href="#">About Us</a>
+    </div>
+
+    <div>
+      <h4>FOLLOW US&#128276 </h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function processPayment() {
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  if (!email || !phone) {
+    alert("Please fill in both email and phone number.");
+    return;
+  }
+
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  const phonePattern = /^[0-9]{8,15}$/;
+
+  if (!emailPattern.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  if (!phonePattern.test(phone)) {
+    alert("Please enter a valid phone number (8-15 digits).");
+    return;
+  }
+
+  const confirmPayment = confirm(`Confirm payment of RM 67.69 for GlobeTrek membership?`);
+  if (confirmPayment) {
+    alert("Payment successful! Welcome to GlobeTrek.");
+    document.getElementById("joinForm").reset();
+  } else {
+    alert("Payment cancelled.");
+  }
+}
+</script>
+
+</body>
+</html>
