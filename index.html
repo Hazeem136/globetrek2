@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobeTrek</title>
+    <meta name="description" content="Award-winning luxury safari and travel experts. Timeless holidays unlocked across Africa and the Indian Ocean.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            /* --- COLOR PALETTE --- */
+            /* Your Brand Blue */
+            --color-navy: #254D79; 
+            
+            /* Lighter Blue for Hovers */
+            --color-navy-light: #3A6EA5;
+            
+            /* Vibrant Yellow/Gold (Matches 'Join Us' button) */
+            --color-gold: #ffcc00; 
+            --color-gold-hover: #e6b800;
+            
+            /* Backgrounds */
+            --color-white: #FFFFFF;
+            --color-off-white: #F4F7F6;
+            
+            /* Text Colors */
+            --color-text-main: #000000; 
+            --color-text-body: #333333; 
+            
+            /* Fonts & Animation */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --spacing-section: 100px;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-body);
+            background-color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-navy); /* Default headings are Blue */
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border-radius: 4px;
+        }
+
+        .btn-primary {
+            background-color: var(--color-gold);
+            color: #000; /* Black text on yellow button */
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--color-white);
+            color: var(--color-white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-white);
+            color: var(--color-navy);
+        }
+
+        .btn-navy {
+            background-color: var(--color-navy);
+            color: var(--color-white);
+        }
+
+        .btn-navy:hover {
+            background-color: var(--color-navy-light);
+        }
+
+        /* ========================================= */
+        /* --- NEW NAVBAR STYLES (FROM REQUEST) --- */
+        /* ========================================= */
+
+        .main-header {
+            display: flex;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 40px;
+            border-bottom: 1px solid #ddd;
+            background: white;
+            transition: padding 0.3s ease;
+        }
+
+        /* LOGO */
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 36px;
+            width: auto;
+            cursor: pointer;
+        }
+
+        .logo-clock {
+            font-size: 10px;
+            color: #808080;
+            margin-top: 1px;
+            font-weight: normal;
+            text-align: center;
+            font-family: "Lucida Console", monospace;
+        }
+
+        /* NAV LINKS */
+        .main-header nav a {
+            margin: 0 12px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .main-header nav a:hover {
+            text-decoration: underline;
+            color: var(--color-navy);
+        }
+
+        /* ACTIONS (SEARCH + BUTTON) */
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* SEARCH BOX */
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 8px 14px;
+            width: 180px;
+            font-size: 14px;
+            font-family: var(--font-body);
+        }
+
+        .search-box button {
+            border: none;
+            background: black;
+            color: white;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #444;
+        }
+
+        /* SUBSCRIBE / JOIN US BUTTON */
+        .subscribe {
+            background: #ffcc00;
+            padding: 10px 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .subscribe:hover {
+            transform: translateY(-2px);
+            background-color: var(--color-gold-hover);
+        }
+
+        .subscribe a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* ========================================= */
+        /* --- END NAVBAR --- */
+        /* ========================================= */
+
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+        }
+
+        .hero-video-wrapper video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%; 
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--color-white);
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .hero-top-label {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: var(--color-gold);
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 0.5s;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--color-white);
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 0.8s;
+        }
+
+        .hero-buttons {
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 1.1s;
+        }
+
+        /* Plane Animation */
+        .plane-icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            fill: var(--color-white);
+            opacity: 0.8;
+            z-index: 0;
+            animation: flyPlane 15s linear infinite;
+        }
+
+        @keyframes flyPlane {
+            0% { top: 10%; left: -5%; transform: rotate(15deg); }
+            100% { top: 30%; left: 105%; transform: rotate(15deg); }
+        }
+
+        /* --- SECTIONS COMMON --- */
+        section {
+            padding: var(--spacing-section) 5%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            color: var(--color-navy);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-gold);
+            margin: 1rem auto 0;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- 1. STATISTICS SECTION --- */
+        .stats-section {
+            background-color: var(--color-white);
+            padding: 100px 5%;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .stat-circle {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            fill: var(--color-gold);
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+            font-weight: 700;
+        }
+
+        /* --- 2. DESTINATIONS (Solid Blue Section) --- */
+        .destinations-section, .europe-section {
+            background-color: var(--color-navy);
+            color: var(--color-white);
+            padding: 100px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destinations-header, .europe {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .dest-section-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--color-white); 
+            margin-bottom: 10px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .dest-section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-gold);
+            margin: 15px auto 0;
+        }
+
+        .dest-subtitle {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+        }
+
+        .slider-viewport {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 0;
+            transition: transform 0.6s ease-in-out;
+            will-change: transform;
+        }
+
+        .dest-card {
+            width: 100%; 
+            min-width: 100%; 
+            flex: 0 0 100%;
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .dest-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .dest-card:hover .dest-img {
+            transform: scale(1.05);
+        }
+
+        .dest-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 50px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            transform: translateY(0);
+        }
+
+        .dest-name {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            color: var(--color-white);
+        }
+
+        .dest-count {
+            color: var(--color-gold);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        /* Arrows */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.4);
+            color: var(--color-white);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 1.5rem;
+        }
+
+        .slider-btn:hover {
+            background: var(--color-gold);
+            border-color: var(--color-gold);
+            color: black;
+        }
+
+        .slider-btn.prev { left: 30px; }
+        .slider-btn.next { right: 30px; }
+
+        /* --- 3. SERVICES (White Background) --- */
+        .why-us {
+            background-color: var(--color-white);
+            padding-top: 100px;
+        }
+
+        .tabs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tabs-header {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: #999;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: var(--color-navy);
+            font-weight: 700;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--color-navy);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .tab-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-navy);
+        }
+
+        .tab-text p {
+            font-size: 1.1rem;
+            color: var(--color-text-body);
+            margin-bottom: 2rem;
+        }
+
+        .tab-image {
+            width: 100%;
+            height: 450px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .tab-image img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .tab-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* --- 4. INSPIRATION (Light Grey Section) --- */
+        .inspiration {
+            background-color: var(--color-off-white);
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .slider-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            scrollbar-width: none;
+        }
+
+        .slider-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slide-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            background: var(--color-white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .slide-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .slide-img-wrapper {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: var(--color-navy);
+            color: var(--color-white);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .slide-content {
+            padding: 1.5rem;
+        }
+
+        .slide-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-navy);
+        }
+
+        .slide-location {
+            font-size: 0.9rem;
+            color: #777;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* --- 5. TESTIMONIALS (White Section) --- */
+        .testimonials {
+            background-color: var(--color-white);
+            text-align: center;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 250px;
+        }
+
+        .testimonial-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            pointer-events: none;
+        }
+
+        .testimonial-item.active {
+            opacity: 1;
+            pointer-events: all;
+            position: relative;
+        }
+
+        .stars {
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .quote {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--color-navy);
+        }
+
+        .author {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            color: #000;
+        }
+
+        .testimonial-controls {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--color-navy);
+        }
+
+        /* --- 6. CTA SECTION --- */
+        .cta-section {
+            background: linear-gradient(rgba(37, 77, 121, 0.9), rgba(37, 77, 121, 0.7)), url('https://picsum.photos/seed/landscape/1920/800') center/cover;
+            color: var(--color-white);
+            text-align: center;
+            padding: 6rem 5%;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content .section-title {
+            color: var(--color-white); /* Ensure Title is white here */
+        }
+
+        .form-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .form-input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-body);
+        }
+
+        /* --- 7. FOOTER (Solid Blue Block) --- */
+        footer {
+            background-color: var(--color-navy);
+            color: var(--color-white);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* --- TOAST --- */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--color-gold);
+            color: #000;
+            padding: 1rem 2rem;
+            border-left: 4px solid var(--color-navy);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* --- ANIMATIONS (Fade In) --- */
+        .card, .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .card.visible, .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- JOIN MODAL STYLES --- */
+        .modal-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .close {
+            position: absolute;
+            top: 10px; right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .step {
+            display: none; /* Hide steps by default */
+        }
+
+        .step.active {
+            display: block; /* Show active step */
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .tab-content.active {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 10px 20px;
+            }
+            
+            .main-header nav {
+                display: none; /* Hide nav items on mobile for simplicity */
+            }
+            
+            .actions {
+                display: none; /* Hide actions on small screens */
+            }
+
+            .form-group {
+                flex-direction: column;
+            }
+            
+            .slider-btn { display: none; }
+            
+            .dest-card { 
+                width: 100%; 
+                min-width: 100%; 
+                height: 400px;
+            }
+            
+            .dest-section-title { font-size: 2rem; }
+            
+            .stats-container { gap: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="GLOBETREK LOGO.jpeg" alt="Globetrek Logo">
+            <div class="logo-clock" id="logoClock">--:--:--</div>
+        </div>
+      
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="europe.html">Europe</a>
+            <a href="country.html">Middle-East</a>
+            <a href="asia1.html">Asia</a>
+            <a href="destination.html">Destination</a>
+            <a href="aboutus.html">About Us</a>
+        </nav>
+      
+        <div class="actions">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search destination..." />
+                <button id="searchBtn">🔍</button>
+            </div>
+            <button class="subscribe" id="openJoin">Join Us</button>
+        </div>
+    </header>
+
+    <header class="hero" id="home">
+        <div class="hero-video-wrapper">
+            <video autoplay muted loop playsinline>
+                <source src="homevid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        
+        <svg class="plane-icon" viewBox="0 0 24 24">
+            <path d="M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z" />
+        </svg>
+
+        <div class="hero-content">
+            <span class="hero-top-label">Expertise without expense</span>
+            <h1 class="hero-title">Timeless Holidays.<br>Unlocked.</h1>
+            <div class="hero-buttons">
+                <a href="#europe" class="btn btn-primary">Be Inspired</a>
+                <a href="#contact" class="btn btn-outline" style="margin-left: 1rem;">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats-section" id="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-circle">
+                    <svg class="stat-icon" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M11,7H13V15H11V7M11,17H13V19H11V17Z" />
+                    </svg>
+                    <div class="stat-number">
+                        <span class="counter" data-target="15000">0</span>+
+                    </div>
+                    <p class="stat-label">Happy Travelers</p>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-circle">
+                    <svg class="stat-icon" viewBox="0 0 24 24">
+                        <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                    </svg>
+                    <div class="stat-number">
+                        <span class="counter" data-target="98">0</span>%
+                    </div>
+                    <p class="stat-label">Satisfaction Rate</p>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-circle">
+                    <svg class="stat-icon" viewBox="0 0 24 24">
+                        <path d="M12,4C14.2,4 16.2,4.9 17.65,6.35L12,12L7.5,7.5C7.5,7.5 4,11 4,11C4,11 7.5,14.5 7.5,14.5L12,10L16.5,14.5C16.5,14.5 20,11 20,11C20,11 16.5,7.5 16.5,7.5L12,12L12,4Z" />
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z" opacity="0.3"/>
+                        <path d="M17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12Z" transform="scale(0.5) translate(12,12)"/>
+                    </svg>
+                    <div class="stat-number">
+                        <span class="counter" data-target="85">0</span>%
+                    </div>
+                    <p class="stat-label">Repeat Clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="europe-section reveal" id="europe">
+        <div class="europe">
+            <h2 class="dest-section-title">Our Worlds</h2>
+            <p class="dest-subtitle">Tailor-made travel taken further</p>
+        </div>
+
+        <div class="slider-viewport" id="destContainer">
+            <button class="slider-btn prev" id="destPrev">&#10094;</button>
+            <button class="slider-btn next" id="destNext">&#10095;</button>
+
+            <div class="slider-track" id="destTrack">
+                
+                <div class="dest-card card">
+                    <img src="ME1.jpg" alt="Middle-east" class="dest-img">
+                    <div class="dest-overlay">
+                        <h3 class="dest-name">Middle-East</h3>
+                        <div class="dest-count">12 Countries</div>
+                    </div>
+                </div>
+
+                <div class="dest-card card">
+                    <img src="A2.jpg" alt="Asia" class="dest-img">
+                    <div class="dest-overlay">
+                        <h3 class="dest-name">Asia</h3>
+                        <div class="dest-count">8 Countries</div>
+                    </div>
+                </div>
+
+                <div class="dest-card card">
+                    <img src="e1.jpg" alt="Europe" class="dest-img">
+                    <div class="dest-overlay">
+                        <h3 class="dest-name">Europe</h3>
+                        <div class="dest-count">Luxury Trains</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="why-us reveal">
+        <h2 class="section-title">Timeless Cities, Unforgettable Journeys</h2>
+        <p class="section-subtitle">Where the World’s Greatest Cities Come Alive</p>
+
+        <div class="tabs-container">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="tab-1">Tokyo</button>
+                <button class="tab-btn" data-tab="tab-2">London</button>
+                <button class="tab-btn" data-tab="tab-3">Dubai</button>
+                <button class="tab-btn" data-tab="tab-4">Paris</button>
+            </div>
+
+            <div class="tab-content active" id="tab-1">
+                <div class="tab-text">
+                    <h3>Tokyo</h3>
+                    <p>Tokyo is a city of contrasts, where ancient temples and peaceful gardens stand beside towering skyscrapers and advanced technology. From authentic street food to world-class dining, and from historic districts to vibrant nightlife, Tokyo offers a truly unique urban experience.</p>
+                    <a href="tokyo.html" class="btn btn-navy">こんにちは</a>
+                </div>
+                <div class="tab-image">
+                    <img src="tokyo.jpg" alt="Tokyo">
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-2">
+                <div class="tab-text">
+                    <h3>London</h3>
+                    <p>London is a city shaped by centuries of history and modern innovation. Iconic landmarks, royal heritage, diverse cultures, and creative industries come together to create a destination that is both classic and constantly evolving.</p>
+                    <a href="london.html" class="btn btn-navy">Hello</a>
+                </div>
+                <div class="tab-image">
+                    <img src="london.jpg" alt="London">
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-3">
+                <div class="tab-text">
+                    <h3>Dubai</h3>
+                    <p>Rising from golden sands, Dubai is a symbol of ambition and modern luxury. Known for its futuristic skyline, exclusive resorts, and unforgettable desert experiences, the city delivers a perfect balance of adventure, comfort, and innovation.</p>
+                    <a href="dubai.html" class="btn btn-navy">مرحبًا</a>
+                </div>
+                <div class="tab-image">
+                    <img src="dubai.jpg" alt="Dubai">
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-4">
+                <div class="tab-text">
+                    <h3>Paris</h3>
+                    <p>Paris enchants visitors with its romantic atmosphere, artistic heritage, and timeless elegance. From iconic monuments and charming cafés to fashion and fine cuisine, the city promises unforgettable moments at every turn.</p>
+                    <a href="paris.html" class="btn btn-navy">Bonjour</a>
+                </div>
+                <div class="tab-image">
+                    <img src="paris.jpg" alt="Paris">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inspiration" class="inspiration reveal">
+        <h2 class="section-title">Get Inspired</h2>
+        <p class="section-subtitle">Curated experiences from our travel specialists</p>
+
+        <div class="slider-container">
+            <div class="slide-card card">
+                <div class="slide-img-wrapper">
+                    <span class="slide-tag">HONEYMOON</span>
+                    <img src="krabi.jpg" alt="Thailand Krabi">
+                </div>
+                <div class="slide-content">
+                    <h4 class="slide-title">THAILAND</h4>
+                    <div class="slide-location">Krabi</div>
+                </div>
+            </div>
+
+            <div class="slide-card card">
+                <div class="slide-img-wrapper">
+                    <span class="slide-tag">FOOD</span>
+                    <img src="penang.jpg" alt="Malaysia Penang">
+                </div>
+                <div class="slide-content">
+                    <h4 class="slide-title">MALAYSIA</h4>
+                    <div class="slide-location">Pulau Pinang</div>
+                </div>
+            </div>
+
+            <div class="slide-card card">
+                <div class="slide-img-wrapper">
+                    <span class="slide-tag">SHOPPING</span>
+                    <img src="shibuya.jpg" alt="Japan Shibuya">
+                </div>
+                <div class="slide-content">
+                    <h4 class="slide-title">JAPAN</h4>
+                    <div class="slide-location">Shibuya</div>
+                </div>
+            </div>
+
+            <div class="slide-card card">
+                <div class="slide-img-wrapper">
+                    <span class="slide-tag">HISTORICAL</span>
+                    <img src="barcelona1.jpg" alt="Spain Barcelona">
+                </div>
+                <div class="slide-content">
+                    <h4 class="slide-title">SPAIN</h4>
+                    <div class="slide-location">Barcelona</div>
+                </div>
+            </div>
+
+            <div class="slide-card card">
+                <div class="slide-img-wrapper">
+                    <span class="slide-tag">NATURE</span>
+                    <img src="jordan.jpg" alt="Jordan Dead Sea">
+                </div>
+                <div class="slide-content">
+                    <h4 class="slide-title">JORDAN</h4>
+                    <div class="slide-location">Dead Sea</div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align:center; margin-top:2rem;">
+            <button id="loadMoreBtn" class="btn btn-primary" style="display:none;">Load More</button>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials reveal">
+        <div class="testimonial-slider">
+            <div class="testimonial-item active" data-index="0">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"I couldn't recommend GlobeTrek more highly. We had the most amazing holiday - every detail had been thought about and they were always on hand to answer questions."</p>
+                <p class="author">Camilla, UK</p>
+            </div>
+            <div class="testimonial-item" data-index="1">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"Blown away by our Tanzania safari. It totally exceeded my expectations and was completely hassle free. Our guide was absolutely amazing."</p>
+                <p class="author">Jeremy, USA</p>
+            </div>
+            <div class="testimonial-item" data-index="2">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"Fantastic customer service. Super friendly team and no question unanswered. Really appreciated how they co-ordinated my family throughout the planning."</p>
+                <p class="author">Jamie, Australia</p>
+            </div>
+        </div>
+        <div class="testimonial-controls">
+            <div class="dot active" onclick="setTestimonial(0)"></div>
+            <div class="dot" onclick="setTestimonial(1)"></div>
+            <div class="dot" onclick="setTestimonial(2)"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section reveal">
+        <div class="cta-content">
+            <h2 class="section-title" style="color:white;">Start planning your journey</h2>
+            <p>Speak to one of our travel specialists today.</p>
+            <form class="enquiry-form" onsubmit="handleEnquiry(event)">
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email Address" required>
+                    <input type="text" class="form-input" placeholder="Name" required>
+                    <button type="submit" class="btn btn-primary">Enquire Now</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="nav-logo" style="margin-bottom: 1rem;">GlobeTrek</div>
+                <p style="color: #aaa; font-size: 0.9rem;">Crafting unforgettable memories in the world's most wild places.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="europe.html">Europe</a></li>
+		    <li><a href="country.html">Middle-East</a></li>
+                    <li><a href="asia1.html">Asia</a></li>
+                    <li><a href="destination.html">Destinations</a></li>
+                                    </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="#">Why Travel With Us</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p style="color:#aaa; font-size:0.9rem; margin-bottom:1rem;">Join the club for latest offers.</p>
+                <div class="form-group" style="margin-top: 0; gap: 0.5rem;">
+                    <input type="email" placeholder="Your email" class="form-input" style="background: rgba(255,255,255,0.1); border: 1px solid #444; color: white;">
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 GlobeTrek. All rights reserved.</div>
+            <div style="display: flex; gap: 1rem;">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast">
+        Thank you! We have received your enquiry.
+    </div>
+
+    <div id="joinModal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="closeJoin" class="close">&times;</span>
+            <div id="step1" class="step active">
+                <h3 style="color:var(--color-navy); margin-bottom:1rem;">Join the Club</h3>
+                <p style="margin-bottom:1.5rem; color:#666;">Get exclusive offers and travel inspiration.</p>
+                <input type="email" id="email" placeholder="Enter your email" class="form-input" style="width:100%; border:1px solid #ccc; margin-bottom:1rem;">
+                <div style="text-align:left; margin-bottom:1.5rem;">
+                    <input type="checkbox" id="agree"> <label for="agree" style="color:#333; font-size:0.9rem;">I agree to the terms.</label>
+                </div>
+                <button onclick="goNext()" class="btn btn-primary" style="width:100%;">Next</button>
+            </div>
+            <div id="step2" class="step">
+                <h3 style="color:var(--color-navy);">Welcome Aboard!</h3>
+                <p style="color:#666; margin-top:10px;">Please check your email for confirmation.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- 1. SEARCH MAP LOGIC ---
+            const destinationPages = {
+                tokyo: "tokyo.html", shanghai: "shanghai.html", bangkok: "bangkok.html",
+                china: "china.html", vietnam: "vietnam.html", indonesia: "indonesia.html",
+                thailand: "thailand.html", london: "london.html", paris: "paris.html"
+            };
+
+            const searchInput = document.getElementById("searchInput");
+            const searchBtn = document.getElementById("searchBtn");
+
+            function redirectToDestination() {
+                const query = searchInput.value.toLowerCase().trim();
+                if (destinationPages[query]) {
+                    window.location.href = destinationPages[query];
+                } else {
+                    alert("Destination not found.");
+                }
+            }
+
+            if(searchBtn) searchBtn.addEventListener("click", redirectToDestination);
+            if(searchInput) {
+                searchInput.addEventListener("keydown", e => {
+                    if (e.key === "Enter") redirectToDestination();
+                });
+            }
+
+            // --- 2. NAVBAR CLOCK (MALAYSIA TIME) ---
+            function updateClock() {
+                const now = new Date();
+                const dateOptions = { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'Asia/Kuala_Lumpur' };
+                const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Kuala_Lumpur' };
+                
+                const dateString = now.toLocaleDateString('en-US', dateOptions);
+                const timeString = now.toLocaleTimeString('en-US', timeOptions);
+                
+                const clockEl = document.getElementById('logoClock');
+                if(clockEl) {
+                    clockEl.textContent = `${dateString} | ${timeString}`;
+                }
+            }
+            setInterval(updateClock, 1000);
+            updateClock();
+
+            // --- 3. MODAL LOGIC ---
+            const openBtn = document.getElementById("openJoin");
+            const modal = document.getElementById("joinModal");
+            const closeBtn = document.getElementById("closeJoin");
+
+            if(openBtn && modal) {
+                openBtn.onclick = () => modal.style.display = "flex";
+                closeBtn.onclick = () => modal.style.display = "none";
+                window.onclick = (e) => {
+                    if (e.target === modal) modal.style.display = "none";
+                };
+            }
+
+            window.goNext = function() {
+                const email = document.getElementById("email").value;
+                const agree = document.getElementById("agree").checked;
+
+                if (!email) return alert("Please enter your email");
+                if (!agree) return alert("Please agree to the terms");
+
+                document.getElementById("step1").classList.remove("active");
+                document.getElementById("step2").classList.add("active");
+            }
+
+            // --- 4. SCROLL FADE-IN ANIMATION (New) ---
+            const cards = document.querySelectorAll('.card, .reveal');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting){
+                        entry.target.classList.add('active'); // Matches CSS .reveal.active
+                        entry.target.classList.add('visible'); // Matches CSS .card.visible
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => observer.observe(card));
+
+            // --- 5. LOAD MORE LOGIC (Optional if needed later) ---
+            const loadMoreBtn = document.getElementById("loadMoreBtn");
+            const hiddenCountries = document.querySelectorAll(".hidden-country");
+            let loadIndex = 0;
+            const itemsToShow = 4;
+
+            if (loadMoreBtn && hiddenCountries.length > 0) {
+                loadMoreBtn.style.display = "inline-block";
+                loadMoreBtn.addEventListener("click", () => {
+                    for (let i = loadIndex; i < loadIndex + itemsToShow; i++) {
+                        if (hiddenCountries[i]) hiddenCountries[i].style.display = "block";
+                    }
+                    loadIndex += itemsToShow;
+                    if (loadIndex >= hiddenCountries.length) loadMoreBtn.style.display = "none";
+                });
+            }
+
+            // --- 6. EXISTING TABS LOGIC ---
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+
+                    btn.classList.add('active');
+                    const targetId = btn.getAttribute('data-tab');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+
+            // --- 7. TESTIMONIAL SLIDER ---
+            let currentTestimonial = 0;
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            const dots = document.querySelectorAll('.dot');
+
+            if(testimonials.length > 0) {
+                function showTestimonial(index) {
+                    testimonials.forEach(t => t.classList.remove('active'));
+                    dots.forEach(d => d.classList.remove('active'));
+                    
+                    testimonials[index].classList.add('active');
+                    if(dots[index]) dots[index].classList.add('active');
+                    currentTestimonial = index;
+                }
+
+                window.setTestimonial = function(index) {
+                    showTestimonial(index);
+                }
+
+                setInterval(() => {
+                    let next = (currentTestimonial + 1) % testimonials.length;
+                    showTestimonial(next);
+                }, 6000);
+            }
+
+            // --- 8. STATS COUNTER ANIMATION ---
+            const counters = document.querySelectorAll('.counter');
+            const statsSection = document.querySelector('.stats-section');
+            let hasCounted = false;
+
+            const runCounterAnimation = () => {
+                if (hasCounted) return;
+                hasCounted = true;
+
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const increment = target / 100; 
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + increment);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            };
+
+            const statsObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    runCounterAnimation();
+                    statsObserver.unobserve(entries[0].target);
+                }
+            }, { threshold: 0.1 }); 
+
+            if (statsSection) statsObserver.observe(statsSection);
+
+            // --- 9. DESTINATION SLIDER ---
+            const track = document.getElementById('destTrack');
+            const container = document.getElementById('destContainer');
+            const prevBtn = document.getElementById('destPrev');
+            const nextBtn = document.getElementById('destNext');
+            const sliderCards = document.querySelectorAll('.dest-card');
+
+            if (track && sliderCards.length > 0) {
+                let currentIndex = 0;
+                let autoSlideTimer;
+                const slideSpeed = 3500; 
+
+                function updatePosition(animate = true) {
+                    const cardWidth = sliderCards[0].offsetWidth; 
+                    const moveAmount = cardWidth * currentIndex;
+                    if (animate) {
+                        track.style.transition = 'transform 0.6s ease-in-out';
+                    } else {
+                        track.style.transition = 'none'; 
+                    }
+                    track.style.transform = `translateX(-${moveAmount}px)`;
+                }
+
+                function slideNext() {
+                    if (currentIndex < sliderCards.length - 1) currentIndex++;
+                    else currentIndex = 0;
+                    updatePosition(true);
+                }
+
+                function slidePrev() {
+                    if (currentIndex > 0) currentIndex--;
+                    else currentIndex = sliderCards.length - 1;
+                    updatePosition(true);
+                }
+
+                function startAutoSlide() {
+                    if(autoSlideTimer) clearInterval(autoSlideTimer);
+                    autoSlideTimer = setInterval(slideNext, slideSpeed);
+                }
+
+                function stopAutoSlide() { clearInterval(autoSlideTimer); }
+
+                if(nextBtn) nextBtn.addEventListener('click', () => { slideNext(); startAutoSlide(); });
+                if(prevBtn) prevBtn.addEventListener('click', () => { slidePrev(); startAutoSlide(); });
+
+                container.addEventListener('mouseenter', stopAutoSlide);
+                container.addEventListener('mouseleave', startAutoSlide);
+                window.addEventListener('resize', () => updatePosition(false));
+
+                updatePosition(false); 
+                startAutoSlide(); 
+            }
+        });
+
+        function handleEnquiry(e) {
+            e.preventDefault();
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            e.target.reset();
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+    </script>
+</body>
+</html>
